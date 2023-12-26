@@ -12,7 +12,7 @@ class Mode(Enum):
     INFINI = 3
 
 # INITIALISATION
-imgName = "zelda.png"
+imgName = "Lenna.png"
 nbGerme = 5000
 mode = Mode.NORMAL
 nomMode = "NORMAL"
