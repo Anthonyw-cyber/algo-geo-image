@@ -135,6 +135,6 @@ def voronoi(img):
             img.source[y][x] = img.pixels[y][x].germ.final
 
 
-image = Image("./zelda.png", 5)
+image = Image("./zelda.png", 40)
 voronoi(image)
 image.write_and_display_image()

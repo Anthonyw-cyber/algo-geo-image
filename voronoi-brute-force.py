@@ -41,13 +41,13 @@ class Image:
         cv2.destroyWindow('generated-image')
 
 
-def tp_brute_force(i):
+def brute_force(i):
     i.points.sort(key=lambda p: (p.x, p.y))
     for x in range(i.source.shape[1]):
         for y in range(i.source.shape[0]):
             max_distance = max(i.source.shape[0], i.source.shape[1])
             for point in i.points:
-                site_result = []
+                site_result =[]
 
                 # Pour tester algo 1 remplacer par site-result[0]
                 site_result.append(sqrt((x - point.x) ** 2 + (y - point.y) ** 2))
@@ -63,5 +63,5 @@ def tp_brute_force(i):
 
 
 image = Image("./Lenna.png", [Pixel(50, 50, '#32a852'), Pixel(250, 250, '#3271a8'), Pixel(450, 450, '#a83232'), Pixel(300, 200, '#cb0bd9')])
-tp_brute_force(image)
+brute_force(image)
 image.write_and_display_image()

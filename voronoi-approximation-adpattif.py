@@ -23,8 +23,8 @@ def adaptive_voronoi(image_path, initial_percentage, threshold_metric):
 
         # Affichage du diagramme de Voronoi sur l'image
         img_voronoi = img.copy()
-        for region in vor.regions:
-            if -1 not in region and len(region) > 0:
+        for region_index, region in enumerate(vor.regions):
+            if -1 not in region and len(region) > 0 and region_index in vor.point_region:
                 region_pixels = img_voronoi[region[1:], region[0]]
                 mean_color = np.mean(region_pixels, axis=0)
                 img_voronoi[region[1:], region[0]] = mean_color.astype(int)
@@ -33,8 +33,8 @@ def adaptive_voronoi(image_path, initial_percentage, threshold_metric):
 
         # Évaluation des régions
         regions_metrics = []
-        for region in vor.regions:
-            if -1 not in region and len(region) > 0:
+        for region_index, region in enumerate(vor.regions):
+            if -1 not in region and len(region) > 0 and region_index in vor.point_region:
                 region_pixels = img[region[1:], region[0], 0]
                 metric = np.var(region_pixels)
                 regions_metrics.append(metric)
