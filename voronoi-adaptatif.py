@@ -109,8 +109,8 @@ mask_bottom_to_top = [
 def voronoi(img):
     contain_invalid_germ = True
     i = 0
-    #changement de seuil possible ici mis a 10 pour rapiditer
-    while contain_invalid_germ and i <= 1000:
+    #changement de seuil possible ici mis a 10 pour rapiditer plus on ajout d'ietration plus l'image sera net
+    while contain_invalid_germ and i <= 10:
         print(i)
         contain_invalid_germ = False
         img.pixels = deepcopy(img.final)
@@ -168,6 +168,6 @@ def voronoi(img):
         for x, pixel in enumerate(img.source[y]):
             img.source[y][x] = img.pixels[y][x].germ.final
 
-image = Image("./zelda.png", 50)
+image = Image("./zelda.png", 20)
 voronoi(image)
 image.write_and_display_image()
